@@ -40,6 +40,8 @@ public class App
 
 /**Example of static varibles unique for the whole application*/
 
+        Engine engine = new Engine();
+        Car car = new Car(engine);
         Vehicle vehicle1= new Vehicle();
         vehicle1.vehiclecount++;
         Vehicle vehicle2 = new Vehicle();
@@ -49,5 +51,11 @@ public class App
         System.out.println("Value from vehicle 2:" + vehicle2.vehiclecount);
         System.out.println("Value from vehicle class:" + Vehicle.vehiclecount);
 
+        /***/
+        new Autovehicle();
+        new Autovehicle(new Engine());
+
+        car.accelerate(100, 2);
+        car.accelerate(100);
     }
 }

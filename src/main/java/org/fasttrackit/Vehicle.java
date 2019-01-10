@@ -14,11 +14,21 @@ public class Vehicle {
         vehiclecount++;
     }
 
-    protected double accelerate(double speed, double durationHours) {
+    public double accelerate(double speed, double durationHours) {
         System.out.println(name + " accelerated with " + speed + " km/h " + durationHours + " hours.");
         double traveldistance = speed * durationHours;
         System.out.println("Travalled distance = "+ traveldistance);
         return traveldistance;
+    }
+
+    public double accelerate(double speed) {
+       /** double durationHours = 1;
+        System.out.println(name + " accelerated with " + speed + " km/h for " + durationHours + " hours.");
+        double traveldistance = speed * durationHours;
+        System.out.println("Travalled distance = "+ traveldistance);
+        return traveldistance;*/
+       return accelerate(speed, 1);
+
     }
 
     public String getName() {
