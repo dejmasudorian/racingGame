@@ -31,6 +31,13 @@ public class Vehicle {
 
     }
 
+    public Vehicle clone(){
+        Vehicle vehicle = new Vehicle();
+        //copy properties from current object or simply call this.clone()
+        return vehicle;
+    }
+
+
     public String getName() {
         return name;
     }
