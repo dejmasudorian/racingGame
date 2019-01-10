@@ -9,4 +9,9 @@ public class Ufo extends Vehicle{
         System.out.println("Travalled distance = "+ traveldistance);
         return traveldistance;
     }
+
+    public  void concealCheating()
+    {
+        System.out.println("I'm not cheating!");
+    }
 }

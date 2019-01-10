@@ -62,6 +62,15 @@ public class App
 
         new Ufo().accelerate(100, 2);
 
+        /**Polymorphism (an object can take multiple forms)*/
+        Vehicle  ufo = new Ufo();
+        /**the type of the variable does not determine the object's behaviour*/
+        /** We might need type casting (see below)*/
+        ufo.accelerate(200, 2);
+        /**S-a folosit accelerate-ul din clasa UFO.*/
+
+        ((Ufo) ufo).concealCheating();
+
 
 
     }
