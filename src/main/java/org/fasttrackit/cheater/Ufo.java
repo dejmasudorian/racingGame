@@ -1,5 +1,12 @@
 package org.fasttrackit.cheater;
-
-public class Ufo {
-
+import org.fasttrackit.Vehicle;
+public class Ufo extends Vehicle{
+    @Override
+    public double accelerate(double speed, double durationHours) {
+        System.out.println("Accelerating as UFO");
+        System.out.println(getName() + " accelerated with " + speed + " km/h " + durationHours + " hours.");
+        double traveldistance = 2*speed * durationHours;
+        System.out.println("Travalled distance = "+ traveldistance);
+        return traveldistance;
+    }
 }

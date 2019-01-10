@@ -1,11 +1,13 @@
 package org.fasttrackit;
 
+import org.fasttrackit.cheater.Ufo;
+
 /** Car Creation*/
 public class App 
 {
     public static void main( String[] args )
     {
-        /**
+
         Engine engine = new Engine();
         engine.manufacturer = "Renault";
         engine.capacity = 1500;
@@ -17,6 +19,8 @@ public class App
         car.setMileage(7.5);
         car.running = true;
         System.out.println(car.getName());
+
+        System.out.println(car.toString());
 
 
 /** car.engine = new Engine(); - aici ai optiunea de a declara tipul de motor
@@ -40,8 +44,6 @@ public class App
 
 /**Example of static varibles unique for the whole application*/
 
-        Engine engine = new Engine();
-        Car car = new Car(engine);
         Vehicle vehicle1= new Vehicle();
         vehicle1.vehiclecount++;
         Vehicle vehicle2 = new Vehicle();
@@ -57,5 +59,10 @@ public class App
 
         car.accelerate(100, 2);
         car.accelerate(100);
+
+        new Ufo().accelerate(100, 2);
+
+
+
     }
 }
