@@ -1,9 +1,18 @@
 package org.fasttrackit;
 
 public class Vehicle {
+
+    public static int vehiclecount;
+
+
     private String name;
     private String color;
     private double mileage;
+
+
+    public Vehicle() {
+        vehiclecount++;
+    }
 
     protected double accelerate(double speed, double durationHours) {
         System.out.println(name + " accelerated with " + speed + " km/h " + durationHours + " hours.");
