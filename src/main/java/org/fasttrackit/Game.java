@@ -22,7 +22,17 @@ public class Game {
 
     private void displayAvailableTracks() {
         System.out.println("Available tracks:");
-        System.out.println(tracks[0].getName());
-        System.out.println(tracks[1].getName());
+        for(int i=0; i < tracks.length; i++)
+            if (tracks[i] != null)
+            {System.out.println(tracks[i].getName());}
+
     }
+
+   /** enhanced for / "for each"
+    for(Track track : tracks)
+    {
+        if (track !=null)
+            System.out.println(track.getName());
+    }*/
+
 }
