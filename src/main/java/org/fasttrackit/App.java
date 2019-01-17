@@ -1,13 +1,11 @@
 package org.fasttrackit;
 
-import org.fasttrackit.cheater.Ufo;
-
 /** Car Creation*/
 public class App 
 {
     public static void main( String[] args )
     {
-
+/**
         Engine engine = new Engine();
         engine.manufacturer = "Renault";
         engine.capacity = 1500;
@@ -43,7 +41,7 @@ public class App
         double carTraveledDistance = car.accelerate(100, 2);*/
 
 /**Example of static varibles unique for the whole application*/
-
+/**
         Vehicle vehicle1= new Vehicle();
         vehicle1.vehiclecount++;
         Vehicle vehicle2 = new Vehicle();
@@ -53,7 +51,7 @@ public class App
         System.out.println("Value from vehicle 2:" + vehicle2.vehiclecount);
         System.out.println("Value from vehicle class:" + Vehicle.vehiclecount);
 
-        /***/
+        /**
         new Autovehicle();
         new Autovehicle(new Engine());
 
@@ -63,15 +61,15 @@ public class App
         new Ufo().accelerate(100, 2);
 
         /**Polymorphism (an object can take multiple forms)*/
-        Vehicle  ufo = new Ufo();
+      //  Vehicle  ufo = new Ufo();
         /**the type of the variable does not determine the object's behaviour*/
         /** We might need type casting (see below)*/
-        ufo.accelerate(200, 2);
+      //  ufo.accelerate(200, 2);
         /**S-a folosit accelerate-ul din clasa UFO.*/
 
-        ((Ufo) ufo).concealCheating();
+       // ((Ufo) ufo).concealCheating(); */
 
-
-
+        Game game = new Game();
+        game.start();
     }
 }
