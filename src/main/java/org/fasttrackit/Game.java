@@ -18,7 +18,26 @@ public class Game {
         displayCompetitors();
         addTracks();
         displayAvailableTracks();
+        // let the user decide what track to use from track array
+        // and store the refrence to that track in the variable below
+        int numberFromUser = getTracknumberFromUser();
+        Track track = tracks[numberFromUser - 1];
+        System.out.println(track.getName());
 
+        boolean noWinnerYet = true;
+        int competitorsWithoutFuel = 0;
+        while (noWinnerYet && competitorsWithoutFuel <= competitors.size()) {
+            for (Vehicle vehicle : competitors) {
+                double speed = getAccelerateFromUser();
+                vehicle.accelerate(speed);
+                if(vehicle.getFuelLevel()<=0)
+                    competitorsWithoutFuel++;
+                if (vehicle.getTotalTravelDistance() >= track.getLength())
+                    System.out.println("Congratz! The winner is" + vehicle.getName());
+                noWinnerYet = false;
+                break;
+            }
+        }
     }
 
     private void addCompetitors(int competitorCount){
@@ -30,8 +49,25 @@ public class Game {
             vehicle.setMileage(
                     ThreadLocalRandom.current().nextDouble(5,15)
             );
+
+            for(Vehicle vehicul: competitors){
+                double speed = getAccelerateFromUser();
+                vehicle.accelerate(speed);
+            }
+
             System.out.println("Vehicle mileage: " + vehicle.getMileage());
             competitors.add(vehicle);
+        }
+    }
+
+    private double getAccelerateFromUser(){
+        System.out.println("Please enter acceleration speed:");
+        Scanner scanner = new Scanner(System.in);
+        try {
+            return  scanner.nextDouble();}
+        catch (InputMismatchException e) {
+            System.out.println("PLease enter a valid decimal number:");
+            return getAccelerateFromUser();
         }
     }
 
@@ -51,7 +87,9 @@ public class Game {
             System.out.println("Selected number of players:");
             return numberofPlayers;
         } catch (InputMismatchException exception){
-           throw new Exception("Integer required.");
+ //          throw new Exception("Integer required.");
+            System.out.println("Please enter a valid integer:");
+            return getCompetitorCountFromUser();
         }
     }
 
@@ -77,6 +115,16 @@ public class Game {
             {System.out.println(tracks[i].getName());}
 
     }
+
+    private int getTracknumberFromUser(){
+        System.out.println("Declare the number of the track you would like to choose:");
+        Scanner scanner = new Scanner(System.in);
+        try {return scanner.nextInt();}
+        catch (InputMismatchException exception){
+            System.out.println("Please enter a valid integer:");
+            return getTracknumberFromUser();}
+    }
+
 
    /** enhanced for / "for each"
     for(Track track : tracks)
