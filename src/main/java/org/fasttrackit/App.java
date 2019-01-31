@@ -3,8 +3,7 @@ package org.fasttrackit;
 /** Car Creation*/
 public class App 
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) throws Exception {
 /**
         Engine engine = new Engine();
         engine.manufacturer = "Renault";
