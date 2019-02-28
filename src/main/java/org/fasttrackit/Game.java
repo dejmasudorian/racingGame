@@ -38,6 +38,7 @@ public class Game {
                 if (vehicle.getTotalTravelDistance() >= track.getLength())
                     System.out.println("Congratz! The winner is" + vehicle.getName());
 
+
                 TopWinner topWinner = new TopWinner();
                 topWinner.setName(vehicle.getName());
                 topWinner.setWonRaces(1);
