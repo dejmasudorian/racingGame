@@ -9,11 +9,11 @@ import java.util.List;
 
 public class TopWinnerRepository {
 
-    public void  createTopWinner(TopWinner topWinner) throws SQLException, IOException, ClassNotFoundException {
-        // try resources
+    public void createTopWinner(TopWinner topWinner) throws SQLException, IOException, ClassNotFoundException {
         try (Connection connection = DatabaseConfiguration.getConnection()) {
-            String insertSql = "INSERT INTO top_winners (`name`, wonRaces) VALUES (?,?)" +
+            String insertSql = "INSERT INTO top_winners (`name`, wonRaces) VALUES (?,?) " +
                     "ON DUPLICATE KEY UPDATE wonRaces = wonRaces + 1;";
+
             PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
             preparedStatement.setString(1, topWinner.getName());
             preparedStatement.setInt(2, topWinner.getWonRaces());
@@ -21,9 +21,12 @@ public class TopWinnerRepository {
             preparedStatement.executeUpdate();
         }
     }
+
     public List<TopWinner> getTopWinners() throws SQLException, IOException, ClassNotFoundException {
         try (Connection connection = DatabaseConfiguration.getConnection()) {
-            String query = "SELECT `name`, wonRaces FROM top_winners ORDER BY wonRaces DESC;";
+            String query =
+                    "SELECT id, `name`, wonRaces FROM top_winners ORDER BY wonRaces DESC;";
+
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
 
@@ -36,9 +39,10 @@ public class TopWinnerRepository {
                 topWinner.setWonRaces(resultSet.getInt("wonRaces"));
 
                 response.add(topWinner);
-
             }
+
             return response;
         }
     }
+
 }
